@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text } from 'react-native'
+import {Text, Image, View, ImageBackground, StatusBar } from 'react-native'
 import { connect } from 'react-redux';
 import { emailChanged, passwordChanged, loginUser } from '../actions'
 import { Card, CardSection, Input, Button, Spinner } from './common';
@@ -39,8 +39,17 @@ class LoginForm extends Component{
     render(){
 
         return(
-            <Card>
-                <CardSection>
+            <ImageBackground
+                source={require('../img/background.png')}
+                style={styles.backgroundImage}
+            >
+
+             <StatusBar barStyle="light-content"/>
+
+            <Card >
+
+
+                <CardSection style={{paddingTop: 365, backgroundColor: 'transparent'}}>
                     <Input label="Email"
                             placeholder="email@gmail.com"
                            onChangeText={this.onEmailChange.bind(this)}
@@ -50,7 +59,7 @@ class LoginForm extends Component{
 
 
 
-                <CardSection>
+                <CardSection style={{backgroundColor: 'transparent'}}>
                     <Input label="Password"
                            placeholder="Password"
                            secureTextEntry
@@ -62,10 +71,12 @@ class LoginForm extends Component{
                 <Text style={ styles.errorTextStyle} >
                     {this.props.error}</Text>
 
-                <CardSection>
+                <CardSection style ={{backgroundColor: 'transparent'}} >
                     {this.renderButton()}
                 </CardSection>
             </Card>
+
+            </ImageBackground>
 
         );
 
@@ -77,10 +88,33 @@ const styles = {
     errorTextStyle: {
       fontSize: 20,
         alignSelf: 'center',
-        color: 'red'
+        color: 'red',
+        backgroundColor: 'transparent'
 
 
+    },
+    imageStyle : {
+        width: 300,
+        height: 200,
+
+
+
+    },
+    imgContainer: {
+        justifyContent: 'center',         // up and down
+        alignItems: 'center',             // left or right
+
+
+
+    },
+    backgroundImage: {
+        flex: 1,
+        alignSelf: 'stretch',
+        width: null,
     }
+
+
+
 
 
 };
