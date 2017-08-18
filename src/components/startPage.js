@@ -18,7 +18,7 @@ class StartPage extends Component{
 
         this.props.studentCreate({name, age, major});
 
-
+        Actions.Q1();
     }
 
 

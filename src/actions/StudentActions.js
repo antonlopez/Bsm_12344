@@ -24,7 +24,7 @@ export const studentCreate = ({name, age, major}) => {
             .then(() => {
 
                     dispatch({type: STUDENT_CREATE});
-                    Actions.startPage();
+                    Actions.Q1();
 
                 }
 

@@ -4,6 +4,7 @@ import LoginForm from './components/LoginForm';
 import EmployeeList from './components/EmployeeList';
 import EmployeeCreate from './components/EmployeeCreate';
 import StartPage from './components/startPage';
+import Q1 from './components/questions/Q1';
 
 const RouterComponent = () => {
 
@@ -28,11 +29,12 @@ const RouterComponent = () => {
 
              />
                 <Scene
-                    key="startSurvey"
-                    component={EmployeeCreate}
+                    key="Q1"
+                    component={Q1}
                     hideNavBar={true}
 
                 />
+
             </Scene>
 
 
