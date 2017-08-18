@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {View, ImageBackground, Text} from 'react-native'
+import {View, ImageBackground, Text, StatusBar} from 'react-native'
 import { connect } from 'react-redux';
 import { studentUpdate, studentCreate} from '../../actions';
-
-import { CardSection, Button, Input } from '../common';
+import SmileyContainer from './SmileyContainer';
+import { CardSection, Button } from '../common';
 
 
 
@@ -26,6 +26,7 @@ class Q1 extends Component{
                 source={require('../../img/survey_background.png')}
                 style={styles.backgroundImage}
             >
+                <StatusBar barStyle="light-content"/>
                 <View style={{paddingTop: 50}}>
 
                     <CardSection style ={styles.inputContainer}>
@@ -34,18 +35,25 @@ class Q1 extends Component{
                     </CardSection>
 
                     <CardSection style ={styles.inputContainer}>
+                       <SmileyContainer/>
+
 
 
                     </CardSection>
 
                     <CardSection style ={styles.inputContainer}>
-
+                        <SmileyContainer/>
 
                     </CardSection>
 
 
                     <CardSection style ={styles.buttonContainer}>
-
+                    <SmileyContainer/>
+                </CardSection>
+                    <CardSection style ={styles.buttonContainer}>
+                        <Button onPress={this.onButtonPressed.bind(this)}>
+                            Next >
+                        </Button>
                     </CardSection>
 
                 </View>
@@ -72,7 +80,7 @@ const styles = {
         backgroundColor: 'transparent',
         borderBottomWidth: 0},
     textStyle :{
-        fontSize: 20,
+        fontSize: 25,
         color: '#fff',
         alignSelf: 'center'
 

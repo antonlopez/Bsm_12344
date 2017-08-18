@@ -13,6 +13,12 @@ const RouterComponent = () => {
 
         <Router>
            <Scene key="auth">
+               <Scene
+                   key="Q1"
+                   component={Q1}
+                   hideNavBar={true}
+
+               />
             <Scene
                 hideNavBar ={true}
                 key="login"
@@ -28,12 +34,8 @@ const RouterComponent = () => {
                 hideNavBar={true}
 
              />
-                <Scene
-                    key="Q1"
-                    component={Q1}
-                    hideNavBar={true}
 
-                />
+
 
             </Scene>
 
