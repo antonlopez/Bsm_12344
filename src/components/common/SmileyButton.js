@@ -5,7 +5,7 @@ const SmileyButton = ({onPress, text, source}) => {
 
     return(
 
-            <View style={Styles.smileyText}>
+            <View>
         <TouchableOpacity onPress={onPress}>
             <Image
                 source={source}
@@ -26,11 +26,8 @@ const SmileyButton = ({onPress, text, source}) => {
 const Styles = {
     textStyle:{
         color: '#fff',
-        fontSize: 15
-    },
-    smileyText:{
-        justifyContent: 'center'
-
+        fontSize: 14,
+        alignSelf: 'center'
     }
 
 

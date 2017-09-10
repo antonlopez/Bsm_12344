@@ -9,7 +9,7 @@ import { Card, CardSection, Input, Button, Spinner } from './common';
 class LoginForm extends Component{
 
     onEmailChange(text){
-    this.props.emailChanged(text);
+        this.props.emailChanged(text);
 
     }
 
@@ -48,8 +48,14 @@ class LoginForm extends Component{
 
             <Card >
 
+                <CardSection style={{paddingTop: 36, backgroundColor: 'transparent'}}>
+                    <Image
+                        source={require('../img/letters.png')}
+                    />
+                </CardSection>
 
-                <CardSection style={{paddingTop: 365, backgroundColor: 'transparent'}}>
+
+                <CardSection style={{paddingTop: 165, backgroundColor: 'transparent'}}>
                     <Input label="Email"
                             placeholder="email@gmail.com"
                            onChangeText={this.onEmailChange.bind(this)}

@@ -13,25 +13,11 @@ import { SmileyButton } from '../common';
 class SmileyContainer extends Component{
 
 
-    onButtonPressed(id){
-
-        switch (id){
-            case amazed:
-                return console.log("amazed");
-            case happy:
-                return console.log("happy");
-            case cool:
-                return console.log("cool");
-
-            default:
-                return null
-
-
-        }
 
 
 
-    }
+
+
 
 
 
@@ -42,9 +28,9 @@ class SmileyContainer extends Component{
 
 
                 <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 15, paddingRight:15}}>
-                    <SmileyButton text = "Amazed!" source ={amazed} onPress={()=>this.onButtonPressed(amazed)}  />
-                    <SmileyButton text = "Happy!" source ={happy} onPress={()=>this.onButtonPressed(happy)}  />
-                    <SmileyButton text = "Cool!" source ={cool} onPress={()=>this.onButtonPressed(cool)}  />
+                    <SmileyButton text = "Amazed!" source ={this.props.source} onPress={this.props.onPress}  />
+                    {/*<SmileyButton text = "Happy!" source ={happy} onPress={()=>this.onButtonPressed(happy)}  />*/}
+                    {/*<SmileyButton text = "Cool!" source ={cool} onPress={()=>this.onButtonPressed(cool)}  />*/}
                 </View>
 
 

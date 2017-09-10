@@ -1,25 +1,77 @@
 import React, {Component} from 'react';
 import {View, ImageBackground, Text, StatusBar} from 'react-native'
 import { connect } from 'react-redux';
-import { studentUpdate, studentCreate} from '../../actions';
-import SmileyContainer from './SmileyContainer';
-import { CardSection, Button } from '../common';
+import { Actions } from 'react-native-router-flux';
+import { questionUpdate, updateSmiley, answerUpdate } from '../../actions';
+import { CardSection, Button, SmileyButton } from '../common';
+import{amazed_green, cool_green, happy_green, mad_green, meh_green, No_answer_green, sad_green, tired_green, very_happy_green } from '../../img/smileys'
+
 
 
 
 class Q1 extends Component{
 
 
-    onButtonPressed(){
+    onButtonPressed(id) {
+        console.log(this.props.name, this.props.age , this.props.major);
+
+        this.props.answerUpdate({props: 'q1', value: id});
+       // this.props.updateSmiley({props: id, value: id});
+
+        if(id ==='cool'){
+            this.props.updateSmiley({props: id, value: cool_green});
+        }
+        if(id==='amazed'){
+            this.props.updateSmiley({props: id, value: amazed_green});
+
+        }
+        if(id==='happy'){
+            this.props.updateSmiley({props: id, value: happy_green});
+
+        }
+        if(id==='mad'){
+            this.props.updateSmiley({props: id, value: mad_green});
+
+        }
+        if(id==='meh'){
+            this.props.updateSmiley({props: id, value: meh_green});
+
+        }
+        if(id==='No_answer'){
+            this.props.updateSmiley({props: id, value: No_answer_green});
+
+        }
+        if(id==='sad'){
+            this.props.updateSmiley({props: id, value: sad_green});
+
+        }
+        if(id==='tired'){
+            this.props.updateSmiley({props: id, value: tired_green});
+
+        }
+        if(id==='very_happy'){
+            this.props.updateSmiley({props: id, value: very_happy_green});
+
+        }
 
 
+
+
+    }
+
+    onButtonNextPressed() {
+        Actions.Q2();
 
     }
 
 
 
 
+
+
     render(){
+
+
 
         return(
             <ImageBackground
@@ -35,23 +87,41 @@ class Q1 extends Component{
                     </CardSection>
 
                     <CardSection style ={styles.inputContainer}>
-                       <SmileyContainer/>
+                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 15, paddingRight:15}}>
+                            <SmileyButton text = "Amazed!" source ={this.props.amazed} onPress={()=>this.onButtonPressed('amazed')}  />
+                            <SmileyButton text = "Happy!" source ={this.props.happy} onPress={()=>this.onButtonPressed('happy')}  />
+                            <SmileyButton text = "Cool!" source ={this.props.cool} onPress={()=>this.onButtonPressed('cool')}  />
+                        </View>
 
 
 
                     </CardSection>
 
                     <CardSection style ={styles.inputContainer}>
-                        <SmileyContainer/>
+
+
+                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 15, paddingRight:15}}>
+                            <SmileyButton text = "Mad!" source ={this.props.mad} onPress={() => this.onButtonPressed('mad')}  />
+                            <SmileyButton text = "Meh" source ={this.props.meh} onPress={()=>this.onButtonPressed('meh')}  />
+                            <SmileyButton text = "No answer" source ={this.props.No_answer} onPress={()=>this.onButtonPressed('No_answer')}  />
+                        </View>
+
+                    </CardSection>
+
+                    <CardSection style ={styles.inputContainer}>
+
+
+                        <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 15, paddingRight:15}}>
+                            <SmileyButton text = "Sad" source ={this.props.sad} onPress={() => this.onButtonPressed('sad')}  />
+                            <SmileyButton text = "Tired" source ={this.props.tired} onPress={()=>this.onButtonPressed('tired')}  />
+                            <SmileyButton text = "Very Happy!" source ={this.props.very_happy} onPress={()=>this.onButtonPressed('very_happy')}  />
+                        </View>
 
                     </CardSection>
 
 
                     <CardSection style ={styles.buttonContainer}>
-                    <SmileyContainer/>
-                </CardSection>
-                    <CardSection style ={styles.buttonContainer}>
-                        <Button onPress={this.onButtonPressed.bind(this)}>
+                        <Button onPress={this.onButtonNextPressed.bind(this)}>
                             Next >
                         </Button>
                     </CardSection>
@@ -89,8 +159,18 @@ const styles = {
 };
 
 
+const mapToStateProps = state => {
+
+
+    const {amazed, cool, happy, mad, meh, No_answer, sad, tired, very_happy} = state.smileys;
 
 
 
 
-export default  Q1;
+    return { amazed, cool, happy, mad, meh, No_answer, sad, tired, very_happy};
+
+};
+
+
+
+export default  connect(mapToStateProps, {answerUpdate, updateSmiley }) (Q1);

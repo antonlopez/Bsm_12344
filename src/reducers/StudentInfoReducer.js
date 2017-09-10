@@ -1,16 +1,18 @@
-import {STUDENT_UPDATE, STUDENT_CREATE} from '../actions/types';
+import {ANSWER_UPDATE, STUDENT_CREATE, RESET} from '../actions/types';
 
-const INITIAL_STATE = { name:'', age:'', major:''};
+const INITIAL_STATE = { name:'', age:'', major:'', q1:'', q2:'', q3:'', q4:'', q5:'', q6:'', q7:false, phone:'', email:'' };
 
 export default (state = INITIAL_STATE, action) => {
 
     switch(action.type){
 
-        case STUDENT_UPDATE:              //action.payload === {prop: 'name', value: 'jane' }
+        case ANSWER_UPDATE:              //action.payload === {prop: 'name', value: 'jane' }
             return {...state, [action.payload.props] : action.payload.value } ; // [] key interpolation
 
-        case STUDENT_CREATE:
+        case RESET:
             return INITIAL_STATE;
+
+
 
         default:
             return state;

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, ImageBackground} from 'react-native'
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
-import { studentUpdate, studentCreate} from '../actions';
+import { answerUpdate, studentCreate} from '../actions';
 
 import { CardSection, Button, Input } from './common';
 
@@ -12,11 +12,6 @@ class StartPage extends Component{
 
 
     onButtonPressed(){
-        const {name, age, major} = this.props;
-
-        console.log(name, age, major);
-
-        this.props.studentCreate({name, age, major});
 
         Actions.Q1();
     }
@@ -37,7 +32,7 @@ class StartPage extends Component{
                     <Input label = "Name:"
                            placeHolder="Insert Name"
                            value = {this.props.name}
-                           onChangeText = { text => this.props.studentUpdate({props: 'name', value: text})}
+                           onChangeText = { text => this.props.answerUpdate({props: 'name', value: text})}
                     />
 
                 </CardSection>
@@ -47,7 +42,7 @@ class StartPage extends Component{
                            placeHolder="Insert Age"
                            keyboardType = "numeric"
                            value = {this.props.age}
-                           onChangeText = { text => this.props.studentUpdate({props: 'age', value: text})}
+                           onChangeText = { text => this.props.answerUpdate({props: 'age', value: text})}
                     />
 
                 </CardSection>
@@ -56,7 +51,7 @@ class StartPage extends Component{
                     <Input label = "Major:"
                            placeHolder="Insert "
                            value = {this.props.major}
-                           onChangeText = { text => this.props.studentUpdate({props: 'major', value: text})}
+                           onChangeText = { text => this.props.answerUpdate({props: 'major', value: text})}
                     />
 
                 </CardSection>
@@ -104,4 +99,4 @@ const mapToStateProps = state => {
 
 
 
-export default connect(mapToStateProps, {studentUpdate, studentCreate}) (StartPage);
+export default connect(mapToStateProps, {answerUpdate}) (StartPage);
