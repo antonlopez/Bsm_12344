@@ -22,6 +22,7 @@ class Q7 extends Component{
         const{name, age, major, q1, q2, q3, q4, q5, q6, q7, phone, email } = this.props;
 
         this.props.studentInfoUpload({name, age, major, q1, q2, q3, q4, q5, q6, q7, phone, email });
+        Actions.FinalPage();
         this.props.resetCheckbox();
 
 

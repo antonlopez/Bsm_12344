@@ -1,6 +1,6 @@
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
-import {STUDENT_UPDATE, STUDENT_CREATE, QUESTION_UPDATE, SMILEY_UPDATE ,SMILEY_CREATE, ANSWER_UPDATE, CHECKBOX_UPDATE, RESET} from './types';
+import {STUDENT_UPDATE, STUDENT_CREATE, QUESTION_UPDATE, SMILEY_UPDATE ,SMILEY_CREATE, ANSWER_UPDATE, CHECKBOX_UPDATE, RESET, RESET_SURVEY} from './types';
 
 export const studentUpdate = ({props, value}) => {
 
@@ -47,8 +47,8 @@ export const studentInfoUpload = ({name, age, major, q1 , q2, q3, q4, q5, q6, q7
             .push({name, age, major, q1 , q2, q3, q4, q5, q6, q7, phone, email})
             .then(() => {
 
-                    dispatch({type: RESET});
-                     Actions.FinalPage();
+                    dispatch({type: RESET_SURVEY});
+                     //Actions.FinalPage();
 
                 }
 
