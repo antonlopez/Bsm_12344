@@ -15,3 +15,4 @@ export const ANSWER_UPDATE = 'answer_update';
 export const CHECKBOX_UPDATE ='checkbox_update';
 export const RESET = 'reset';
 export const RESET_SURVEY = 'reset_survey';
+export const QUESTION_FETCH_SUCCESS = 'question_fetch_success';

@@ -1,6 +1,15 @@
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
-import {STUDENT_UPDATE, STUDENT_CREATE, QUESTION_UPDATE, SMILEY_UPDATE ,SMILEY_CREATE, ANSWER_UPDATE, CHECKBOX_UPDATE, RESET, RESET_SURVEY} from './types';
+import {STUDENT_UPDATE,
+        STUDENT_CREATE,
+        QUESTION_UPDATE,
+        SMILEY_UPDATE,
+        SMILEY_CREATE,
+        ANSWER_UPDATE,
+        CHECKBOX_UPDATE,
+        RESET,
+        RESET_SURVEY,
+        QUESTION_FETCH_SUCCESS  } from './types';
 
 export const studentUpdate = ({props, value}) => {
 
@@ -123,6 +132,25 @@ export const answerUpdate = ({props, value}) => {
 
     };
 
+
+
+};
+
+
+export const questionFetch = () => {
+
+    const {currentUser} = firebase.auth();
+
+    return (dispatch) => {
+        firebase.database().ref(`/users/${currentUser.uid}/questions`)
+            .on('value', snapshot => {        // anytime any data call this function with an object to describe the data inside
+
+                dispatch({ type: QUESTION_FETCH_SUCCESS,
+                    payload: snapshot.val()
+                });
+            });
+
+    };
 
 
 };

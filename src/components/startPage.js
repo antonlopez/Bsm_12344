@@ -10,6 +10,11 @@ import { CardSection, Button, Input } from './common';
 
 class StartPage extends Component{
 
+    componentDidMount(){
+
+
+    }
+
 
     onButtonPressed(){
 
